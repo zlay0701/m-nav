@@ -1,6 +1,6 @@
 {
   "name": "m-nav",
-  "version": "0.5.2",
+  "version": "0.6.1",
   "private": true,
   "keywords": [
     "m-nav",
@@ -18,8 +18,9 @@
     "docker:dev": "docker compose up -d",
     "docker:stop": "docker compose down",
     "docker:push": "docker tag m-nav busyhe/m-nav:latest && docker tag m-nav busyhe/m-nav:$(node -p \"require('./package.json').version\") && docker push busyhe/m-nav:latest && docker push busyhe/m-nav:$(node -p \"require('./package.json').version\")",
+    "docker:release": "pnpm docker:build && pnpm docker:push",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all --execute \"pnpm docker:build && pnpm docker:push\""
+    "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all --execute \"pnpm run docker:release\""
   },
   "devDependencies": {
     "@m-nav/eslint-config": "workspace:*",
