@@ -74,3 +74,36 @@ Google Analytics 根据 `NEXT_PUBLIC_GA_ID` 环境变量有条件地启用：
 4. 部署并享受你的导航网站！
 
 你也可以通过推送到连接 Vercel 的 GitHub 仓库来手动部署。
+
+## 使用 Docker 部署
+
+你也可以使用 Docker 进行部署：
+
+### 使用 Docker Compose（推荐）
+
+```bash
+# 复制环境变量文件并配置
+cp .env.example .env
+# 编辑 .env 填入你的配置
+
+# 构建并运行
+docker compose up -d
+```
+
+### 使用 Docker 命令行
+
+```bash
+# 构建镜像
+docker build \
+  --build-arg NOTION_PAGE_ID=your_notion_page_id \
+  --build-arg NEXT_PUBLIC_GA_ID=your_ga_id \
+  -t m-nav .
+
+# 运行容器
+docker run -d -p 3000:3000 \
+  -e NOTION_PAGE_ID=your_notion_page_id \
+  -e NEXT_PUBLIC_GA_ID=your_ga_id \
+  m-nav
+```
+
+应用将在 `http://localhost:3000` 可用。

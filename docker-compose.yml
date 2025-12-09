@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NOTION_PAGE_ID=${NOTION_PAGE_ID}
+        - NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID}
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NOTION_PAGE_ID=${NOTION_PAGE_ID}
+      - NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID}
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3000",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

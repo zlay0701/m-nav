@@ -74,3 +74,36 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 4. Deploy and enjoy your navigation site!
 
 You can also manually deploy by pushing to your Vercel-connected GitHub repository.
+
+## Deploy with Docker
+
+You can also deploy using Docker:
+
+### Using Docker Compose (Recommended)
+
+```bash
+# Copy environment file and configure
+cp .env.example .env
+# Edit .env with your values
+
+# Build and run
+docker compose up -d
+```
+
+### Using Docker CLI
+
+```bash
+# Build the image
+docker build \
+  --build-arg NOTION_PAGE_ID=your_notion_page_id \
+  --build-arg NEXT_PUBLIC_GA_ID=your_ga_id \
+  -t m-nav .
+
+# Run the container
+docker run -d -p 3000:3000 \
+  -e NOTION_PAGE_ID=your_notion_page_id \
+  -e NEXT_PUBLIC_GA_ID=your_ga_id \
+  m-nav
+```
+
+The application will be available at `http://localhost:3000`.
