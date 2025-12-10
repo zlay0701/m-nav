@@ -20,7 +20,7 @@
     "docker:push": "docker tag m-nav busyhe/m-nav:latest && docker tag m-nav busyhe/m-nav:$(node -p \"require('./package.json').version\") && docker push busyhe/m-nav:latest && docker push busyhe/m-nav:$(node -p \"require('./package.json').version\")",
     "docker:release": "pnpm docker:build && pnpm docker:push",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all --execute \"pnpm run docker:release\""
+    "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all"
   },
   "devDependencies": {
     "@m-nav/eslint-config": "workspace:*",
