@@ -4,6 +4,8 @@
 
 一个从 Notion 数据库获取内容并展示的导航网站，基于 Next.js 15 构建。
 
+![M-Nav 示例](./example.png)
+
 ## 特性
 
 - 从 Notion 页面及其数据库获取数据

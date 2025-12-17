@@ -4,6 +4,8 @@ English | [简体中文](./README_zh.md)
 
 A navigation site that displays content from a Notion database, built with Next.js 15.
 
+![M-Nav Example](./example.png)
+
 ## Features
 
 - Fetches data from a Notion page and its databases
