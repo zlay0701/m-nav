@@ -4,7 +4,7 @@
 
 一个从 Notion 数据库获取内容并展示的导航网站，基于 Next.js 15 构建。
 
-![M-Nav 示例](./example.png)
+![M-Nav 示例](https://github.com/busyhe/m-nav/blob/main/%20example.png)
 
 ## 特性
 
