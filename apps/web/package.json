@@ -16,7 +16,7 @@
     "@next/third-parties": "catalog:",
     "keyv": "catalog:",
     "lucide-react": "catalog:",
-    "next": "catalog:",
+    "next": "15.5.8",
     "next-themes": "^0.4.4",
     "notion-client": "catalog:",
     "notion-types": "catalog:",
